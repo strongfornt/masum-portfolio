@@ -6,8 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Marquee from "./Marquee";
 import Card from "./Card";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
+import "swiper/css/navigation";
+// import "swiper/css/pagination";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -15,12 +17,42 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProjectShowcase() {
   const projectShowRef = useRef(null);
   const projects = [
-    { id: 1, title: "Weather app", image: "/project1.png" },
-    { id: 2, title: "Landing page", image: "/project2.jpeg" },
-    { id: 3, title: "B2B App", image: "/project3.png" },
-    { id: 4, title: "E-commerce", image: "/project2.jpeg" },
-    { id: 5, title: "Marketing", image: "/project2.jpeg" },
-    { id: 6, title: "Portfolio Website", image: "/project2.jpeg" },
+    {
+      id: 1,
+      title: "Track Website",
+      link:"https://www.thepioneerwoman.com/",
+      image: "/recent_project1.png",
+    },
+    {
+      id: 2,
+      title: "Cavai",
+      link: "https://www.cavai.com/",
+      image: "/recent_project2.png",
+    },
+    {
+      id: 3,
+      title: "Mrpops",
+      link: "https://mrpops.ua/en/",
+      image: "/recent_project3.png",
+    },
+    {
+      id: 4,
+      title: "Surgent studios",
+      link: "https://www.surgentstudios.com/",
+      image: "/recent_project4.png",
+    },
+    {
+      id: 5,
+      title: "Tinkering monkey",
+      link:"https://www.tinkeringmonkey.com/",
+      image: "/recent_project5.png",
+    },
+    {
+      id: 6,
+      title: "Sap",
+      link:"https://news.sap.com/",
+      image: "/recent_project6.png",
+    },
   ];
   return (
     <div
@@ -42,20 +74,23 @@ export default function ProjectShowcase() {
         <div className="md:hidden">
         <div className="md:hidden">
       <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        navigation={true}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Navigation]}
+         spaceBetween={10}
+         slidesPerView={1}
+         // pagination= {{clickable:true}}
+         loop={true}
+         speed={1000}
+         autoplay={{
+           delay: 500,
+           disableOnInteraction: true,
+         }}
+         // disableOnInteraction={true}
+         navigation={true}
+         modules={[Autoplay, Pagination,Navigation]}
       >
         {projects.map((card, index) => (
           <SwiperSlide key={index}>
             <div className="cell">
-              <Card title={card.title} image={card.image} />
+              <Card link={card?.link} title={card.title} image={card.image} />
             </div>
           </SwiperSlide>
         ))}

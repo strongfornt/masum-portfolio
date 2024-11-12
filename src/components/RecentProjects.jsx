@@ -8,91 +8,86 @@ const projects = [
     {
         id: 1,
         title: "Track Website",
+        link:"https://www.thepioneerwoman.com/",
         image: "/recent_project1.png",
         category: "React JS",
         technologies: [
             "React",
-            "Next.js",
-            "Typescript",
-            "Nest.js",
-            "PostgreSQL",
-            "Tailwindcss",
+            "Redux",
+            "Express",
+            "Node.js"
         ],
     },
     {
         id: 2,
-        title: "AI tools services",
+        title: "Cavai",
+        link: "https://www.cavai.com/",
         image: "/recent_project2.png",
         category: "React JS",
         technologies: [
             "React",
-            "Next.js",
-            "Typescript",
-            "PostgreSQL",
-            "Tailwindcss",
-            "Nest.js",
+            "Redux",
+            "Swiper"
         ],
     },
     {
         id: 3,
-        title: "Fashion website",
+        title: "Mrpops",
+        link: "https://mrpops.ua/en/",
         image: "/recent_project3.png",
         category: "React JS",
         technologies: [
             "React",
-            "Next.js",
-            "Typescript",
-            "PostgreSQL",
-            "Tailwindcss",
-            "Nest.js",
+           "GSAP",
+           "Redux",
+           "Three.js"
         ],
     },
     {
         id: 4,
-        title: "Traveling website",
+        title: "Surgent studios",
+        link: "https://www.surgentstudios.com/",
         image: "/recent_project4.png",
         category: "React JS",
         technologies: [
             "React",
-            "Next.js",
-            "Typescript",
-            "Nest.js",
-            "PostgreSQL",
-            "Tailwindcss",
+            "Redux",
+            "Swiper",
+            "Lenis",
+            "GSAP"
         ],
     },
     {
         id: 5,
-        title: "Blog Website",
+        title: "Tinkering monkey",
+        link:"https://www.tinkeringmonkey.com/",
         image: "/recent_project5.png",
-        category: "React JS",
+        category: "Wordpress",
         technologies: [
-            "React",
-            "Next.js",
-            "Typescript",
-            "Nest.js",
-            "PostgreSQL",
-            "Tailwindcss",
+            "Wordpress",
+            "GSAP",
+            "jQuery",
+            "PHP"
         ],
     },
     {
         id: 6,
-        title: "M metamins",
+        title: "Sap",
+        link:"https://news.sap.com/",
         image: "/recent_project6.png",
-        category: "React JS",
+        category: "Wordpress",
         technologies: [
-            "React",
-            "Next.js",
-            "Typescript",
-            "Nest.js",
-            "PostgreSQL",
-            "Tailwindcss",
+            "Wordpress",
+            "GSAP",
+            "jQuery",
+            "PHP",
+            "Yoast SEO"
         ],
     },
 ];
 const FilterButton = ({ label, isActive, onClick }) => (
     <button
-        className={`px-6 py-3 text-nowrap rounded-full text-xs md:text-sm font-medium ${isActive ? "bg-orange-500 text-white" : "bg-gray-700 text-white"
+        className={`px-6 py-3 text-nowrap rounded-full text-xs md:text-sm font-medium ${isActive ? "bg-[#00e676] text-white" : "bg-gray-700 text-white"
             }`}
         onClick={onClick}
     >
@@ -121,7 +116,7 @@ export default function ProjectShowcase() {
         <div ref={containerRef} className="bg-black text-white py-8 md:py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1120px] mx-auto">
                 <div className="flex space-x-4 mb-12 overflow-x-auto">
-                    {["All", "Laravel", "React JS", "Wordpress"].map(
+                    {["All","React JS", "Wordpress"].map(
                         (category) => (
                             <FilterButton
                                 key={category}
@@ -140,6 +135,7 @@ export default function ProjectShowcase() {
                             <ProjectCard
                                 key={project.id}
                                 project={project}
+                                
                                 isWide={index%3==0 || index%4==0}
                             />
                         ))}
